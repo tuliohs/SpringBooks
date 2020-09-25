@@ -17,51 +17,48 @@ import br.newtonpaiva.book.api.livros.response.LivroResponse;
 import br.newtonpaiva.book.domain.livros.entities.Livro;
 
 @RestController
-public class LivrosController implements LivrosResource{
+public class LivrosController implements LivroResource {
 
 	private Map<UUID, Livro> livros = new HashMap<UUID, Livro>();
-	
 
 	@Override
 	public ResponseEntity<List<LivroResponse>> getAll() {
 
 		var lista = new ArrayList<LivroResponse>();
-				
 
 		livros.keySet().forEach(key -> {
 			lista.add(new LivroResponse(livros.get(key)));
 		});
-				
-		
+
 		return ResponseEntity.status(HttpStatus.OK).body(lista);
 	}
 
 	@Override
 	public ResponseEntity<LivroResponse> getById(Optional<String> id) {
-		
+
 		var livro = livros.get(UUID.fromString(id.get()));
-		
+
 		if (livro == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
-		
+
 		return ResponseEntity.status(HttpStatus.OK).body(new LivroResponse(livro));
 	}
 
 	@Override
 	public ResponseEntity<LivroResponse> create(Optional<LivroRequest> request) {
-		
+
 		if (request.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
-		
+
 		if (request.get().getId() == null || request.get().getId().trim().isEmpty()) {
 			request.get().setId(UUID.randomUUID().toString());
 		}
-		
+
 		Livro value = new Livro(request.get());
 		livros.put(UUID.fromString(request.get().getId()), value);
-		
+
 		return ResponseEntity.status(HttpStatus.CREATED).body(new LivroResponse(value));
 	}
 
@@ -70,16 +67,16 @@ public class LivrosController implements LivrosResource{
 		if (request.isEmpty() || request.get().getId() == null || request.get().getId().trim().isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
-		
+
 		var livro = livros.get(UUID.fromString(request.get().getId()));
-		
+
 		if (livro == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}		
-		
+		}
+
 		Livro value = new Livro(request.get());
 		livros.put(UUID.fromString(request.get().getId()), value);
-		
+
 		return ResponseEntity.status(HttpStatus.OK).body(new LivroResponse(value));
 	}
 
@@ -88,15 +85,14 @@ public class LivrosController implements LivrosResource{
 
 		UUID uuid = UUID.fromString(id.get());
 		var livro = livros.get(uuid);
-		
+
 		if (livro == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}		
+		}
 
 		livros.remove(uuid);
-		
+
 		return new ResponseEntity<UUID>(HttpStatus.NO_CONTENT);
 	}
-
 
 }

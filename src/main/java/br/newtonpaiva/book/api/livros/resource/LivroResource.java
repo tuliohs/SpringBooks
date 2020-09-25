@@ -20,25 +20,22 @@ import br.newtonpaiva.book.api.livros.request.LivroRequest;
 import br.newtonpaiva.book.api.livros.response.LivroResponse;
 
 @RequestMapping(path = "/v1/livros")
-public interface LivrosResource {
-		
-	@GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
+public interface LivroResource {
+
+    @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<LivroResponse> getById(@PathVariable Optional<String> id);
 
-	
-	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<LivroResponse> create(@RequestBody Optional<LivroRequest> request);
 
+    @PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<LivroResponse> update(@PathVariable Optional<UUID> id,
+            @RequestBody Optional<LivroRequest> request);
 
-	@PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<LivroResponse> update(@PathVariable Optional<UUID> id, @RequestBody Optional<LivroRequest> request);
-
-
-	@DeleteMapping(path = "/{id}")    
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<UUID> deleteById(@PathVariable Optional<String> id);
 
-	
-	@GetMapping(produces = APPLICATION_JSON_VALUE)
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<LivroResponse>> getAll();
 
 }

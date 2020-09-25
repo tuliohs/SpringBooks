@@ -13,25 +13,24 @@ import lombok.NoArgsConstructor;
 public class Livro {
 
 	public Livro(LivroRequest request) {
-		this.id = livro.getId();
-		this.titulo = livro.getTitulo();
-		this.autor = livro.getAutor();
-		this.editora = livro.getEditora();
-		this.dataDePublicacao = livro.getDataDePublicacao();
-		this.anoDeModelo = livro.getAnoDeModelo();
-		this.status = livro.getStatus();
+		this.id = request.getId();
+		this.titulo = request.getTitulo();
+		this.autor = request.getAutor();
+		this.editora = request.getEditora();
+		this.dataDePublicacao = request.getDataDePublicacao();
+		this.status = request.getStatus();
 	}
-		
+
 	private String id;
-	
+
 	private String titulo;
-	
+
 	private String autor;
-	
+
 	private String editora;
-	
+
 	private String dataDePublicacao;
-	
+
 	private int status;
 
 }
