@@ -10,4 +10,10 @@ public class BookApplication {
 		SpringApplication.run(BookApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		
+		repo.deleteAll();
+
+	}
 }
