@@ -15,10 +15,6 @@ public interface LivroService {
 	
 	void deleteById(String id);
 	
-	List<Livro> getAllByMarca(String marca);
-	
-	List<Livro> getAllByModelo(String modelo);
-	
 	List<Livro> getAll();
 	
 }

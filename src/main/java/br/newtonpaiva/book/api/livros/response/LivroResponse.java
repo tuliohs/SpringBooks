@@ -1,6 +1,6 @@
 package br.newtonpaiva.book.api.livros.response;
 
-import br.newtonpaiva.si.aaw.tcc.ref.domain.automoveis.entities.Automovel;
+import br.newtonpaiva.si.aaw.tcc.ref.domain.automoveis.entities.Livro;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
