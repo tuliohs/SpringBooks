@@ -1,4 +1,4 @@
-package br.newtonpaiva.ead.aaw.lab.domain.automoveis.service.impl;
+package br.newtonpaiva.ead.aaw.lab.domain.livros.service.impl;
 
 import static br.newtonpaiva.ead.aaw.lab.common.exception.Messages.MSG_Livro_COM_ID_NÃO_ENCONTRADO;
 import static java.lang.String.format;
@@ -11,12 +11,12 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.newtonpaiva.ead.aaw.lab.api.automoveis.request.LivroRequest;
-import br.newtonpaiva.ead.aaw.lab.common.exception.Messages;
-import br.newtonpaiva.ead.aaw.lab.common.exception.NotFoundException;
-import br.newtonpaiva.ead.aaw.lab.domain.automoveis.entity.Livro;
-import br.newtonpaiva.ead.aaw.lab.domain.automoveis.repo.LivroRepo;
-import br.newtonpaiva.ead.aaw.lab.domain.automoveis.service.LivroService;
+import br.newtonpaiva.book.api.livros.request.LivroRequest;
+import br.newtonpaiva.book.common.exception.Messages;
+import br.newtonpaiva.book.common.exception.NotFoundException;
+import br.newtonpaiva.book.domain.livros.entity.Livro;
+import br.newtonpaiva.book.domain.livros.repo.LivroRepo;
+import br.newtonpaiva.book.domain.livros.service.LivroService;
 
 @Component
 public class LivroServiceImpl implements LivroService {

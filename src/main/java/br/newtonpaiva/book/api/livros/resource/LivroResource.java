@@ -20,7 +20,7 @@ import br.newtonpaiva.book.api.livros.request.LivroRequest;
 import br.newtonpaiva.book.api.livros.response.LivroResponse;
 
 @RequestMapping(path = "/v1/livros")
-public interface AutomoveisResource {
+public interface LivrosResource {
 		
 	@GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<LivroResponse> getById(@PathVariable Optional<String> id);

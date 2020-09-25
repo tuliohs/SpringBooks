@@ -60,7 +60,7 @@ public class LivrosController implements LivrosResource{
 		}
 		
 		Livro value = new Livro(request.get());
-		automoveis.put(UUID.fromString(request.get().getId()), value);
+		livros.put(UUID.fromString(request.get().getId()), value);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(new LivroResponse(value));
 	}
