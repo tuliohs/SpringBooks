@@ -13,7 +13,5 @@ public class BookApplication {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		repo.deleteAll();
-
 	}
 }
