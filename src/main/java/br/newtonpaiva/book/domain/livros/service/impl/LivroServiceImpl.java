@@ -1,9 +1,9 @@
-package br.newtonpaiva.book.domain.livros.entities.service.impl;
+package br.newtonpaiva.book.domain.livros.service.impl;
 
-import static br.newtonpaiva.book.common.exception.Messages.MSG_LIVRO_COM_ID_NÃO_ENCONTRADO;;
+import static br.newtonpaiva.book.common.exception.Messages.MSG_LIVRO_COM_ID_NÃO_ENCONTRADO;
 import static java.lang.String.format;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.newtonpaiva.book.api.livros.request.LivroRequest;
-import br.newtonpaiva.book.common.exception.Messages;
+//import br.newtonpaiva.book.common.exception.Messages;
 import br.newtonpaiva.book.common.exception.NotFoundException;
-import br.newtonpaiva.book.domain.livros.entities.Livro;
-import br.newtonpaiva.book.domain.livros.entities.repo.LivroRepo;
-import br.newtonpaiva.book.domain.livros.entities.service.LivroService;
+import br.newtonpaiva.book.domain.livros.entity.Livro;
+import br.newtonpaiva.book.domain.livros.repo.LivroRepo;
+import br.newtonpaiva.book.domain.livros.service.LivroService;
 
 @Component
 public class LivroServiceImpl implements LivroService {
@@ -35,15 +35,17 @@ public class LivroServiceImpl implements LivroService {
 	@Override
 	public Livro create(LivroRequest request) {
 
+		// create new Onj with received params
 		Livro a = new Livro(request);
 
-		LocalDateTime now = LocalDateTime.now();
-		a.(now);
-		a.setModified(now);
+		// change athers field
 		a.setId(UUID.randomUUID().toString());
+		/*
+		 * Implemment create date LocalDateTime now = LocalDateTime.now(); a.(now);
+		 * a.setModified(now);
+		 */
 
 		repo.save(a);
-
 		return a;
 	}
 
@@ -52,16 +54,13 @@ public class LivroServiceImpl implements LivroService {
 
 		var a = getById(id);
 
-		a.setAnoDeFabricacao(request.getAnoDeFabricacao());
-		a.setAnoDeModelo(request.getAnoDeModelo());
-		a.setKm(request.getKm());
-		a.setMarca(request.getMarca());
-		a.setModelo(request.getModelo());
-
-		a.setModified(LocalDateTime.now());
+		a.setAutor(request.getAutor());
+		a.setEditora(request.getEditora());
+		a.setTitulo(request.getTitulo());
+		a.setDataDePublicacao(request.getDataDePublicacao());
+		a.setStatus(request.getStatus());
 
 		repo.save(a);
-
 		return a;
 	}
 
@@ -75,16 +74,6 @@ public class LivroServiceImpl implements LivroService {
 		}
 
 		return a.get();
-	}
-
-	@Override
-	public List<Livro> getAllByMarca(String marca) {
-		return repo.findByMarca(marca);
-	}
-
-	@Override
-	public List<Livro> getAllByModelo(String modelo) {
-		return repo.findByModelo(modelo);
 	}
 
 	@Override

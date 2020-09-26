@@ -1,15 +1,16 @@
 package br.newtonpaiva.book.api.livros.request;
 
 import static br.newtonpaiva.book.common.exception.Messages.MSG_FIELD_CANNOT_BE_BLANK;
-import static br.newtonpaiva.book.common.exception.Messages.MSG_FIELD_CANNOT_BE_NULL;
+//import static br.newtonpaiva.book.common.exception.Messages.MSG_FIELD_CANNOT_BE_NULL;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*ApiRequest is similar with Model but includ annotations*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,17 +19,16 @@ public class LivroRequest {
 	private String id;
 
 	@NotBlank(message = MSG_FIELD_CANNOT_BE_BLANK)
-	private String marca;
+	private String titulo;
 
 	@NotBlank(message = MSG_FIELD_CANNOT_BE_BLANK)
-	private String modelo;
+	private String autor;
 
-	@NotNull(message = MSG_FIELD_CANNOT_BE_NULL)
-	private Integer anoDeFabricacao;
+	@NotBlank(message = MSG_FIELD_CANNOT_BE_BLANK)
+	private String editora;
 
-	@NotNull(message = MSG_FIELD_CANNOT_BE_NULL)
-	private Integer anoDeModelo;
+	private String dataDePublicacao;
 
-	private Integer km;
+	private int status;
 
 }

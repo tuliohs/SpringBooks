@@ -1,9 +1,9 @@
-package br.newtonpaiva.book.domain.livros.entities.service;
+package br.newtonpaiva.book.domain.livros.service;
 
 import java.util.List;
 
 import br.newtonpaiva.book.api.livros.request.LivroRequest;
-import br.newtonpaiva.book.domain.livros.entities.Livro;
+import br.newtonpaiva.book.domain.livros.entity.Livro;
 
 public interface LivroService {
 
@@ -16,5 +16,4 @@ public interface LivroService {
 	void deleteById(String id);
 
 	List<Livro> getAll();
-
 }

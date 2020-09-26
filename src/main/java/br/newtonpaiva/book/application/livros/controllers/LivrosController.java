@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.newtonpaiva.book.api.livros.request.LivroRequest;
 import br.newtonpaiva.book.api.livros.resource.LivroResource;
 import br.newtonpaiva.book.api.livros.response.LivroResponse;
-import br.newtonpaiva.book.domain.livros.entities.Livro;
+import br.newtonpaiva.book.domain.livros.entity.Livro;
 
 @RestController
 public class LivrosController implements LivroResource {

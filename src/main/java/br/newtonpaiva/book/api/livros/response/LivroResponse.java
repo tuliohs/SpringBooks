@@ -1,10 +1,11 @@
 package br.newtonpaiva.book.api.livros.response;
 
-import br.newtonpaiva.book.domain.livros.entities.Livro;
+import br.newtonpaiva.book.domain.livros.entity.Livro;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*Model add Methods*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
