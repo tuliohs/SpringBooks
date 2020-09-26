@@ -16,6 +16,7 @@ import br.newtonpaiva.book.api.livros.resource.LivroResource;
 import br.newtonpaiva.book.api.livros.response.LivroResponse;
 import br.newtonpaiva.book.domain.livros.entity.Livro;
 
+//Convert methods in json 
 @RestController
 public class LivrosController implements LivroResource {
 

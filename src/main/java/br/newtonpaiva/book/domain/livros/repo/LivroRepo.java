@@ -8,7 +8,7 @@ import br.newtonpaiva.book.domain.livros.entity.Livro;
 
 public interface LivroRepo extends MongoRepository<Livro, String> {
 
-    public List<Livro> findByAuthor(String title);
+    public List<Livro> findByAutor(String title);
 
     public List<Livro> findByEditora(String editora);
 }
