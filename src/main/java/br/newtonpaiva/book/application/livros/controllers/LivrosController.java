@@ -30,7 +30,6 @@ public class LivrosController implements LivroResource {
 		livros.keySet().forEach(key -> {
 			lista.add(new LivroResponse(livros.get(key)));
 		});
-
 		return ResponseEntity.status(HttpStatus.OK).body(lista);
 	}
 
@@ -65,7 +64,7 @@ public class LivrosController implements LivroResource {
 
 	@Override
 	public ResponseEntity<LivroResponse> update(Optional<UUID> id, Optional<LivroRequest> request) {
-		if (request.isEmpty() || request.get().getId() == null || request.get().getId().trim().isEmpty()) {
+		if (request.isEmpty() || request.get().getId() == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 
@@ -92,7 +91,6 @@ public class LivrosController implements LivroResource {
 		}
 
 		livros.remove(uuid);
-
 		return new ResponseEntity<UUID>(HttpStatus.NO_CONTENT);
 	}
 

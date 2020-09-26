@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/*Model add Methods*/
+/*Model with contructors*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

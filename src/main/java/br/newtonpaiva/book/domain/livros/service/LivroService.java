@@ -5,6 +5,7 @@ import java.util.List;
 import br.newtonpaiva.book.api.livros.request.LivroRequest;
 import br.newtonpaiva.book.domain.livros.entity.Livro;
 
+/*available methods*/
 public interface LivroService {
 
 	Livro create(LivroRequest request);

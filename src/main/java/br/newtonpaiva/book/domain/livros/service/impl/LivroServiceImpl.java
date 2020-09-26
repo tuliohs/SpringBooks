@@ -19,6 +19,7 @@ import br.newtonpaiva.book.domain.livros.repo.LivroRepo;
 import br.newtonpaiva.book.domain.livros.service.LivroService;
 
 @Component
+/* implementatios of the methods */
 public class LivroServiceImpl implements LivroService {
 
 	@Autowired
@@ -35,10 +36,10 @@ public class LivroServiceImpl implements LivroService {
 	@Override
 	public Livro create(LivroRequest request) {
 
-		// create new Onj with received params
+		// create new object with received params
 		Livro a = new Livro(request);
 
-		// change athers field
+		// change others field
 		a.setId(UUID.randomUUID().toString());
 		/*
 		 * Implemment create date LocalDateTime now = LocalDateTime.now(); a.(now);

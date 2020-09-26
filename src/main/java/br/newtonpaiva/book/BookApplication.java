@@ -1,7 +1,5 @@
 package br.newtonpaiva.book;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,12 +23,6 @@ public class BookApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// limpar base
 		repo.deleteAll();
-
-		// salvar alguns automoveis
-		repo.save(new Livro().withId(UUID.randomUUID().toString()).withEditora("Free"));
-
-		// salvar alguns automoveis
-		repo.save(new Livro().withId(UUID.randomUUID().toString()).withTitulo("New Ok"));
 
 		// listando os automoveis
 		for (Livro a : repo.findAll()) {
